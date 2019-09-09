@@ -1,0 +1,6 @@
+ to create the requirements file of the dependencies
+ pip freeze > requirements.txt
+
+
+to install dependencies from requirements.txt
+pip install -r requirements.txt
