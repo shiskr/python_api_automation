@@ -1,19 +1,15 @@
 import pandas as pd
-from pandas import ExcelWriter
-from pandas import ExcelFile
-import xlsxwriter
 import os
 
 
-def getAdminUserDetails(user_type):
-    df = pd.read_excel(r"../Assets/PCM_Excel.xlsx", sheet_name="users")
-    facility_listy = []
-
+def getUserDetails(user_type):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    file_path = dir_path + '/../Assets/PCM_Excel.xlsx'
+    df = pd.read_excel(file_path, sheet_name="users")
+    all_columns = list(df.columns.values)
+    all_row_values = []
     for i in df.index:
-        facility_listy.append(df['FACILITY ID'][i])
-        facilitynames_listy.append(df['FACILITY NAME'][i])
-    return facility_listy, facilitynames_listy
-
-
-if __name__ == '__main__':
-    getAdminUserDetails("getAdminUser")
+        if df['user_type'][i]==user_type:
+            all_row_values = list(df.iloc[i, :])
+    all_details = dict(zip(all_columns, all_row_values))
+    return all_details

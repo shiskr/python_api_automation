@@ -4,3 +4,11 @@
 
 to install dependencies from requirements.txt
 pip install -r requirements.txt
+
+
+run :
+py.test --alluredir={path to the reports directory}
+py.test --alluredir=/Users/kumar.shishir/PycharmProjects/python_api_automation/reports/
+
+to generate report:
+allure serve {path of the directory of the reports}

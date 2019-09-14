@@ -1,8 +1,7 @@
 import unittest
 
 testmodules = [
-    'test.login_test',
-    'test.new_test',
+    'test.test_Login',
     ]
 
 suite = unittest.TestSuite()

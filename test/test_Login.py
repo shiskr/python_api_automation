@@ -1,7 +1,5 @@
-import logging
-from API_objects import Login_API
 from API_objects.Login_API import *
-from utility import Requests_Manager
+from utility.Requests_Manager import Requests_Manager
 from utility.Excel_Reader import *
 
 
@@ -9,16 +7,19 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='
                     level=logging.INFO)
 
 
-class TestFacebookLogin(Login_API, Requests_Manager):
+class TestLogin(Requests_Manager):
 
     def test_valid_login_status_code(self):
-        username, password = getAdminUserDetails("getAdminUser")
-        verify_user_Login_status_code(username, password)
+        user_details = getUserDetails("getAdminUser")
+        login_api = Login_API()
+        login_api.verify_user_Login_status_code(user_details)
 
     def test_Invalid_login(self):
-        username, password = getInvalidUserDetails()
-        verify_user_invalid_login(username, password)
+        user_details = getUserDetails("getUserwithWrongPassword")
+        login_api = Login_API()
+        login_api.verify_user_invalid_login(user_details)
 
     def test_valid_login_response(self):
-        username, password = getAdminUserDetails()
-        verify_user_login_response(username, password)
+        user_details = getUserDetails("getAdminUser")
+        login_api = Login_API()
+        login_api.verify_user_login_response(user_details)

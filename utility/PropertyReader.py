@@ -1,7 +1,10 @@
 import configparser
+import os
 
 rawconfigparser = configparser.RawConfigParser()
-rawconfigparser.read('../Assets/config.properties')
+dir_path = os.path.dirname(os.path.realpath(__file__))
+file_path = dir_path + '/../Assets/config.properties'
+rawconfigparser.read(file_path)
 ApiURL = None
 XAPIKey = None
 
