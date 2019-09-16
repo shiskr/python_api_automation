@@ -18,7 +18,7 @@ class Singleton(object):
 
 
 class Login_API(Singleton):
-    @allure.testcase("verify_user_Login_status_code")
+
     def verify_user_Login_status_code(self, user_details):
         headers = {"Content-Type": "application/x-www-form-urlencoded", "api-key": getXAPIKey()}
         payload = {'userName': user_details['username'], 'password': user_details['password']}
@@ -35,7 +35,6 @@ class Login_API(Singleton):
             logging.exception("Cannot Log In")
             raise
 
-    @allure.testcase("verify_user_invalid_login")
     def verify_user_invalid_login(self, user_details):
         headers = {"Content-Type": "application/x-www-form-urlencoded", "api-key": getXAPIKey()}
         payload = {'userName': user_details['username'], 'password': user_details['password']}
@@ -53,7 +52,6 @@ class Login_API(Singleton):
             logging.exception("Error")
             raise
 
-    @allure.testcase("verify_user_login_response")
     def verify_user_login_response(self, user_details):
         headers = {"Content-Type": "application/x-www-form-urlencoded", "api-key": getXAPIKey()}
         payload = {'userName': user_details['username'], 'password': user_details['password']}

@@ -1,5 +1,6 @@
 import unittest
 import logging
+import HtmlTestRunner
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
                     level=logging.INFO)
@@ -17,7 +18,7 @@ class Requests_Manager(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner())
 
     # HTML Test Runner
     # unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="/Users/kumar.shishir/PycharmProjects/python_api_automation/reports/"))

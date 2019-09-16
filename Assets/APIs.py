@@ -1,5 +1,5 @@
 #AUTHORIZATION
-postLoginApi: str = "/authserver/api/authentication/accesstoken"
+postLoginApi = "/authserver/api/authentication/accesstoken"
 getValidateTokenApi = "/authserver/api/Authentication/ValidateToken"
 #PRODUCT
 getBulkPriceSearchResultApi = "/api/Product/BulkPriceSearch"
